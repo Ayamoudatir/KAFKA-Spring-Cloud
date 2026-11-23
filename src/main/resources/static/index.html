@@ -31,13 +31,11 @@
     var stockEventSource= new EventSource("/analytics");
     stockEventSource.addEventListener("message", function (event) {
         pages.forEach(function(v){
-            val=JSON.parse(event.data)[v];
+            val=JSON.parse(event.data)[v] || 0;
             courbe[v].append(new Date().getTime(),val);
         });
     });
 
 </script>
-</body>
-</html>
 </body>
 </html>
